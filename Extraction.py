@@ -3,12 +3,13 @@ import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
 import plotly.graph_objs as go
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
 line2d=[]
+
 df=pd.read_csv('boxoffice.csv')
 with open('boxoffice.csv','r') as file:
           for line in file:
