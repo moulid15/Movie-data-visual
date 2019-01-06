@@ -33,8 +33,10 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-app.layout = html.Div(children=[
-    html.H3(children='US Movie Gross'),
+app.layout = html.Div(
+style={'background':'blue','color':'white'},
+children=[
+    html.H3(style={'background-color':'white', 'color':'black'},children='US Movie Gross'),
     generate_table(df)
 ])
 if __name__ == '__main__':
