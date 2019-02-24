@@ -18,7 +18,7 @@ with open('boxoffice.csv','r') as file:
               line2d.append(lines)
 line2d.remove(line2d[0])
 def generate_table(dataframe, max_rows=10):
-    return html.Table(
+    return html.Bar(
         # Header
         [html.Tr([html.Th(col) for col in dataframe.columns])] +
 
@@ -34,7 +34,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div(
-style={'background':'blue','color':'white'},
+style={'background':'black','color':'white'},
 children=[
     html.H3(style={'background-color':'white', 'color':'black'},children='US Movie Gross'),
     generate_table(df)
