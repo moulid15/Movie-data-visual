@@ -38,7 +38,11 @@ for i in movie:
     else:
         name.append(i)
     delete += 1
-d=todic(name, money)
+d = todic(name, money)
+
+
 def ret():
     return d
+
+
 print(d)
