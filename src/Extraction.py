@@ -18,7 +18,7 @@ with open('boxoffice.csv','r') as file:
               line2d.append(lines)
 line2d.remove(line2d[0])
 def generate_table(dataframe, max_rows=10):
-    return html.Bar(
+    return html.Table(
         # Header
         [html.Tr([html.Th(col) for col in dataframe.columns])] +
 
