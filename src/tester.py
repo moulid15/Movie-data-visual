@@ -3,12 +3,11 @@ import plotly
 import dash_core_components as dcc
 import dash_html_components as html
 
-from src.scraper import ret
+import src.scraper
 
 app = dash.Dash()
-
 l = dict = {}
-l = ret()
+l = src.scraper.ret()
 app.layout = html.Div(children=[
     html.H1(children='Moe plots'),
     dcc.Graph(
@@ -20,7 +19,7 @@ app.layout = html.Div(children=[
                  'type': 'line', 'name': 'movies'}
             ],
             'layout': {
-                'title': 'Top 100 Movies US gross'
+                'title': 'Top '+str(len(l))+' Movies US gross'
             }
         }
     )
