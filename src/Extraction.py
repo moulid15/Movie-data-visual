@@ -8,15 +8,17 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-line2d=[]
+line2d = []
 
-df=pd.read_csv('boxoffice.csv')
-with open('boxoffice.csv','r') as file:
-          for line in file:
-              lines=line.split(',');
-              lines.remove(lines[0])
-              line2d.append(lines)
+df = pd.read_csv('boxoffice.csv')
+with open('boxoffice.csv', 'r') as file:
+    for line in file:
+        lines = line.split(',');
+        lines.remove(lines[0])
+        line2d.append(lines)
 line2d.remove(line2d[0])
+
+
 def generate_table(dataframe, max_rows=10):
     return html.Table(
         # Header
@@ -29,15 +31,11 @@ def generate_table(dataframe, max_rows=10):
     )
 
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
 app.layout = html.Div(
-style={'background':'black','color':'white'},
-children=[
-    html.H3(style={'background-color':'white', 'color':'black'},children='US Movie Gross'),
-    generate_table(df)
-])
+    style={'background': 'black', 'color': 'white','border': 'auto'},
+    children=[
+        html.H3(style={'background-color': 'white', 'color': 'black'}, children='US Movie Gross'),
+        generate_table(df)
+    ])
 if __name__ == '__main__':
     app.run_server(debug=True)

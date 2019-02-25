@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
+import aiohttp
+import asyncio
 import certifi
 import pandas
 
@@ -8,6 +10,8 @@ response = requests.get(url)
 
 soup = BeautifulSoup(response.content, 'html.parser')
 # print(type(soup.find_all('a')))
+# async def req():
+
 name = []
 movie = []
 money = []
