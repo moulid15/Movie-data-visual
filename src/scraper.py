@@ -2,13 +2,9 @@ from bs4 import BeautifulSoup
 import requests
 import aiohttp
 import asyncio
-import certifi
-import pandas
+
 
 url = 'https://www.boxofficemojo.com/alltime/domestic.htm'
-
-# print(type(soup.find_all('a')))
-# async def req():
 
 name = []
 movie = []
@@ -32,7 +28,6 @@ def dictmaker(gross, movie, money, name, delete):
             delete += 1
     movie.remove(movie[-1])
     delete = 0
-    # print(movie)
     for i in movie:
         if delete % 2 != 0:
             money.append(i)
