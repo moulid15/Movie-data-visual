@@ -6,7 +6,6 @@ Here I am trying to plot the highest domestic grossing movie of every decade usi
   git clone https://github.com/moulid15/Movie-data-visual.git 
   ```
   ## running server
-   #### go inside src folder and type the command:
-    ```
+   #### go inside src folder and type the command: 
      python Extraction.py
-     ```
+     
