@@ -1,14 +1,18 @@
 from bs4 import BeautifulSoup
 import requests
 
-weeknum='09'
+weeknum = []
+week = []
+url = 'https://www.boxofficemojo.com/weekly/?view=year&p=.htm'
+response = requests.get(url)
 
-url='https://www.boxofficemojo.com/weekly/chart/?yr=2019&wk='+str(weeknum)+'&p=.htm'
-response= requests.get(url)
+soup=BeautifulSoup(response.content, 'html.parser')
 
-soup=BeautifulSoup(response.content,'html.parser')
+names = soup.find("div", {"id": "body"}).find_all('font', face="Arial")
+for i in names:
+        weeknum.append(i.string)
 
-names = soup.find("div", {"id": "main"}).find("div", {"id": "body"}).find('table',).findall('b')
-gross = soup.find("div", {"id": "main"}).find("div", {"id": "body"}).find_all('font')
+del (weeknum[0:7])
+week = [weeknum[x] for x in range(len(weeknum)) if not x % 8 == 0]
 
-print(names)
+print(week)
